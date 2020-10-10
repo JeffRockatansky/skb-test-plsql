@@ -67,18 +67,26 @@
 ## 4. `[PL/SQL]`: Необходимо переписать следующий фрагмент кода , чтобы избавиться от ненужных вложенных ~~циклов~~ **условных операторов**:
 
 ```sql
+-- В виде блока PL/SQL кода
 IF salary < 10000
 	THEN bonus := 2000;
-	ELSE
-IF salary < 20000
+ELSIF salary < 20000
 	THEN bonus := 1500;
-	ELSE
-IF salary < 40000
+ELSIF salary < 40000
 	THEN bonus := 1000;
-	ELSE bonus := 500;
+ELSE bonus := 500;
 END IF;
-END IF;
-END IF;
+
+-- В виде запроса
+select
+	case
+		when salary < 10000 THEN 2000
+		when salary < 20000 THEN 1500
+		when salary < 40000 THEN 1000
+		ELSE 500
+	end bonus
+from
+	emp_salary_calc;
 ```
 
 ## 5. `[PL/SQL]`: Вывести в результате запроса числа от 1 до 1000.
