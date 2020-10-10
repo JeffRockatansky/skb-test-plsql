@@ -2,9 +2,9 @@
 select
 	*
 from
-	A
+	TableA A
 left outer join
-	B
+	TableB B
 on
 	A.key = B.key
 where
@@ -14,9 +14,9 @@ where
 select
 	*
 from
-	A
+	TableA A
 inner join
-	B
+	TableB B
 on
 	A.key = B.key;
 
@@ -24,9 +24,9 @@ on
 select
 	*
 from
-	A
+	TableA A
 full outer join
-	B
+	TableB B
 on
 	A.key = B.key;
 
@@ -34,9 +34,9 @@ on
 select
 	*
 from
-	A
+	TableA A
 full outer join
-	B
+	TableB B
 on
 	A.key = B.key
 where
