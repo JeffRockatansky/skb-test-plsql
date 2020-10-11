@@ -22,7 +22,7 @@ begin
 	dbms_output.put_line(msg);
 	-- Writing string into XML
 	msg_xml := xmltype(msg);
-	-- XML parsing into table collection
+	-- XML parsing into nested table collection
 	select
 		extractvalue(Value(skb_xml), '/SKB/S') as s
 		, extractvalue(Value(skb_xml), '/SKB/K') as k

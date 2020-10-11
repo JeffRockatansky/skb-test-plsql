@@ -2,14 +2,13 @@ create table SKB_TSILYURIK_TABLE_C (
 	OWNM varchar2(4000) not null
 	, EMPFIO varchar2(4000) not null
 );
-COMMIT;
-/
+
 -- Add comments to the table
 COMMENT ON TABLE "SKB_TSILYURIK_TABLE_C" IS 'Таблица C';
 -- Add comments to the columns
 COMMENT ON COLUMN "SKB_TSILYURIK_TABLE_C"."OWNM" IS 'Наименование подразделения';
 COMMENT ON COLUMN "SKB_TSILYURIK_TABLE_C"."EMPFIO" IS 'ФИО сотрудника';
-/
+
 declare
 	arg_ownm SKB_TSILYURIK_TABLE_C.OWNM%type := 'Гаррипоттерная';
 	arg_empfio SKB_TSILYURIK_TABLE_C.EMPFIO%type := 'Зубенко Михаил Петрович';

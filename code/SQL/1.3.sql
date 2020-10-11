@@ -5,7 +5,14 @@ create table SKB_TSILYURIK_EMP (
 	tabnum number PRIMARY key
 	, username varchar2(4000) not null UNIQUE
 );
-/
+
+-- # Comments
+-- ## Table
+COMMENT ON TABLE "SKB_TSILYURIK_EMP" IS 'Таблица Сотрудников';
+-- ## Colums
+COMMENT ON COLUMN "SKB_TSILYURIK_EMP"."TABNUM" IS 'Табельный номер';
+COMMENT ON COLUMN "SKB_TSILYURIK_EMP"."USERNAME" IS 'Имя пользователя';
+
 CREATE OR REPLACE PACKAGE skb_tsilyurik_accs is
 	type numrow is record (num number);
 	type t_num is table of numrow;
@@ -15,7 +22,7 @@ end skb_tsilyurik_accs;
 /
 CREATE OR REPLACE PACKAGE BODY skb_tsilyurik_accs is
 	procedure gen(arg_n_count in number) is
-		my_tname CONSTANT tab.tname%type := 'SKB_TSILYURIK_EMP';
+		--my_tname CONSTANT tab.tname%type := 'SKB_TSILYURIK_EMP';
 		tname tab.tname%type := null;
 	begin
 		dbms_output.put_line(arg_n_count);
@@ -24,7 +31,7 @@ CREATE OR REPLACE PACKAGE BODY skb_tsilyurik_accs is
 			t.tname
 			into tname
 			from tab t
-			where t.tname = my_tname;
+			where t.tname = 'SKB_TSILYURIK_EMP';
 			EXCEPTION
 				WHEN
 					NO_DATA_FOUND
